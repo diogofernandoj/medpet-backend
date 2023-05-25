@@ -6,7 +6,7 @@ type AppointmentRequest = {
   client_name: string;
   client_phone_number?: string;
   client_address?: string;
-  date: string;
+  date: Date;
   status: boolean;
   user_id: string;
 };

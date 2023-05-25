@@ -6,10 +6,12 @@ import { UserInfoController } from "./controllers/user/userInfoController";
 
 import { isAuthenticated } from "./middlewares/isAuthenticated";
 
+import { GetTransactionsController } from "./controllers/transaction/getTransactionsController";
 import { AddTransactionController } from "./controllers/transaction/addTransactionController";
 import { UpdateTransactionController } from "./controllers/transaction/updateTransactionController";
 import { DeleteTransactionController } from "./controllers/transaction/deleteTransactionController";
 
+import { GetAppointmentsController } from "./controllers/appointment/getAppointmentsController";
 import { AddAppointmentController } from "./controllers/appointment/addAppointmentController";
 import { DeleteAppointmentController } from "./controllers/appointment/deleteAppointmentController";
 import { UpdateAppointmentController } from "./controllers/appointment/updateAppointmentController";
@@ -25,6 +27,12 @@ router.post("/login", new AuthUserController().handle);
 router.get("/me", isAuthenticated, new UserInfoController().handle);
 
 // ROTAS TRANSACTION
+router.get(
+  "/transactions",
+  isAuthenticated,
+  new GetTransactionsController().handle
+);
+
 router.post(
   "/transactions",
   isAuthenticated,
@@ -44,6 +52,12 @@ router.delete(
 );
 
 // ROTAS APPOINTMENT
+router.get(
+  "/appointments",
+  isAuthenticated,
+  new GetAppointmentsController().handle
+);
+
 router.post(
   "/appointments",
   isAuthenticated,

@@ -1,10 +1,10 @@
 import prismaClient from "../../prisma";
 
 type TransactionRequest = {
-  date: string;
+  date: Date;
   type: boolean;
   title: string;
-  value: string;
+  value: number;
   status: boolean;
   user_id: string;
 };

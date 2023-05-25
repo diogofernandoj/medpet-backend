@@ -26,10 +26,10 @@ model User {
 
 model Transaction {
   id String @id @default(uuid())
-  date String
+  date DateTime
   type Boolean
   title String
-  value String
+  value Float
   status Boolean
   user_id String
   user User @relation(fields: [user_id], references: [id])
@@ -47,7 +47,7 @@ model Appointment {
   client_name String
   client_phone_number String?
   client_address String?
-  date String
+  date DateTime
   status Boolean @default(false)
   user_id String
   user User @relation(fields: [user_id], references: [id])
